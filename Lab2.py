@@ -42,6 +42,11 @@ def sort_temperature(temp_list):
     temp_list.sort()
     return temp_list
 
+def calc_median_temperature(temp_list):
+    mid = len(temp_list) // 2
+    res = (temp_list[mid] + temp_list[~mid]) / 2 # ~ operator is bitwise inverse,so when list.len is even,
+                                                 # e.g. 2,mid = 2 and ~mid = -3 so it takes the 3rd index and 2nd index
+    return res;
 
 def main():
     print("ET0735 (DevOps for AIoT) - Lab 2 - Introduction to Python")
@@ -50,6 +55,8 @@ def main():
     avgTemp = calc_average(temp_list)
     minmax_list = calc_min_max(temp_list)
     sorted_list = sort_temperature(temp_list)
+    medianTemp = calc_median_temperature(sorted_list)
+    print("The median temperature of the values that you entered is: ", medianTemp)
     print("The average temperature of the values that you entered is: ",avgTemp)
     print("The lowest temperature you entered is: ",minmax_list[0],end='\n')
     print("The highest temperature you entered is: ",minmax_list[1])
